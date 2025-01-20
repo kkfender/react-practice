@@ -3,6 +3,7 @@ import { ColoredMessage } from "./components/ColoredMessage"
 
 export const App = () => {
     // stateの定義
+    console.log("Appレンダリング")
     const [num, setNum] = useState(0);
 
     const onClickButton = () => {
