@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { ColoredMessage } from "./components/ColoredMessage"
+import { Child1 } from "./components/Child"
+import { Child4 } from "./components/Child4"
 
 export const App = () => {
     // stateの定義
@@ -13,11 +14,10 @@ export const App = () => {
 
     return(
     <>
-        <h1>こんにちは！</h1>;
-        <ColoredMessage color="blue">お元気ですか？</ColoredMessage>
-        <ColoredMessage color="pink">元気です</ColoredMessage>
         <button onClick={onClickButton}>ボタン</button>
         <p>{num}</p>
+        <Child1></Child1>
+        <Child4></Child4>
     </>
     )
 }
