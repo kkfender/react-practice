@@ -1,26 +1,18 @@
-import { useState, memo, useCallback } from "react"
-import { Child1 } from "./components/Child"
-import { Child4 } from "./components/Child4"
+import { useState, memo } from "react"
+import { Card } from "./components/Card";
 
 export const App = memo(() => {
-    // stateの定義
-    console.log("Appレンダリング")
-    const [num, setNum] = useState(0);
+    // 管理者フラグ
+    const [isAdmin, setIsAdmin] = useState(false);
 
-    const onClickButton = () => {
-        alert();
-        setNum(num + 1);
-    };
-
-    const onClickReset = useCallback(() => {
-        setNum(0);
-    }, []);
+    //  切り替え押下時
+    const onClickSwitch = () => setIsAdmin(!isAdmin);
     return(
-    <>
-        <button onClick={onClickButton}>ボタン</button>
-        <p>{num}</p>
-        <Child1 onClickReset={onClickReset}></Child1>
-        <Child4></Child4>
-    </>
+        <div>
+            {/* 管理者がフラグTRUEの時とそれ以外で文字だしわけ */}
+            { isAdmin ? <span>管理者です</span> : <span>管理者以外です</span>}
+            <button onClick={onClickSwitch}>切り替え</button>
+            <Card isAdmin={isAdmin} />
+        </div>
     )
 });
